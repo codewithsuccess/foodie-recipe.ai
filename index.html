@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodieRecipe : best recipes are here</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="shortcut icon" href="/favicon-32x32.png" type="image/x-icon">
+
+</head>
+
+<body
+    class="bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800">
+    <!-- responsive nabvar -->
+    <nav
+        class="px-4 py-2 flex justify-between items-center bg-white dark:bg-gray-800 border-b-2 dark:border-gray-600 sticky top-0 z-50">
+
+        <a class="text-2xl font-bold text-orange-600  dark:text-orange-600" href="/index.html">
+            FoodieRecipe</a>
+
+        <div class="lg:hidden">
+            <button class="navbar-burger flex items-center text-orange-600 dark:text-orange-300 p-1" id="navbar_burger">
+                <svg class="block h-6 w-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <title>Hamberger menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </button>
+        </div>
+
+        <ul
+            class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+
+            <li>
+                <div class=" relative mx-auto text-gray-600">
+                    <input id="search-input"
+                        class="border border-gray-300 placeholder-current h-10 px-5 pr-16  rounded-lg text-sm focus:outline-none dark:bg-gray-500 dark:border-gray-50 dark:text-gray-200 "
+                        type="search" name="search" placeholder="Search for recipes">
+
+                    <button id="search-recipe" type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                        <svg class="text-gray-600 dark:text-orange-600 h-4 w-4 fill-current"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                            x="0px" y="0px" viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
+                            xml:space="preserve" width="512px" height="512px">
+                            <path
+                                d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+                        </svg>
+                    </button>
+
+                </div>
+            </li>
+        </ul>
+
+
+        <div class="hidden lg:flex">
+
+            <!-- <button id="theme-toggle" type="button"
+                class="hidden lg:inline-block lg:ml-auto py-1.5 px-3 m-1 text-center bg-gray-100 border border-gray-300 rounded-md text-black dark:text-gray-300 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-6 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-6 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button> -->
+
+            <a href="#">
+                <button
+                    class=" py-1.5 px-3 m-1 text-center bg-orange-600 border rounded-md text-white  hover:bg-orange-500 hover:text-gray-100 dark:text-gray-200 dark:bg-orange-700 hidden lg:block">
+                    Recipes
+                </button>
+            </a>
+
+            <div>
+                <span class="hidden" id="util_data" data="{{ json_encode($util_data) }}"></span>
+                <a class=" py-1.5 px-3 m-1 text-center bg-gray-100 border border-gray-300 rounded-md text-black  hover:bg-gray-100 dark:text-gray-300 dark:bg-gray-700 hidden lg:inline-block "
+                    href="#">
+                    Sign In
+                </a>
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- mobile navbar -->
+    <div id="navbar-menu" class="navbar-menu relative z-50 hidden">
+        <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-50"></div>
+        <nav
+            class="fixed bg-white dark:bg-gray-600 top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 border-r overflow-y-auto">
+
+            <div class="flex items-center mb-8">
+                <a class="mr-auto text-2xl font-bold text-orange-600 dark:text-orange-600" href="#">
+                    FoodieRecipe
+                </a>
+
+                <button class="navbar-close">
+                    <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class=" relative mx-auto text-gray-600">
+                <input id="search-input-mobile"
+                    class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none dark:placeholder-gray-500 dark:bg-gray-300 dark:border-gray-50"
+                    type="search" name="search" placeholder="Search for recipes">
+
+                <button id="search-recipe-mobile" type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                    <svg class="text-gray-600 dark:text-orange-600 h-4 w-4 fill-current"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        x="0px" y="0px" viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
+                        xml:space="preserve" width="512px" height="512px">
+                        <path
+                            d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+                    </svg>
+                </button>
+
+            </div>
+
+            <div class="mt-auto">
+
+                <div class="pt-6">
+                    <button id="theme-toggle-2" type="button"
+                        class=" py-2.5 w-[97.6%] mb-3 rounded-xl flex justify-center align-middle px-3 m-1 text-center bg-gray-100 border border-gray-300 text-black  hover:bg-gray-100 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-700">
+                        <svg id="theme-toggle-dark-icon-2" class="w-6 h-6 hidden" fill="currentColor"
+                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon-2" class="w-6 h-6 hidden" fill="currentColor"
+                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+
+                    <a class="block m-1 text-center bg-gray-100 border border-gray-300  text-black  hover:bg-gray-100 dark:text-gray-300 dark:bg-gray-700 px-4 py-3 mb-3 text-sm font-semibold rounded-xl"
+                        href="#">
+                        Sign in
+                    </a>
+
+                    <a class="block m-1 text-center border text-white hover:text-gray-100 dark:text-gray-200 dark:bg-orange-700 px-4 py-3 mb-2 text-xs font-semibold bg-orange-600 hover:bg-orange-700  rounded-xl"
+                        href="#">
+                        Recipes
+                    </a>
+
+                </div>
+                <p class="my-4 text-xs text-center text-gray-400">
+                    <span>FoodieRecipe Copyright © 2023</span>
+                </p>
+            </div>
+        </nav>
+    </div>
+
+    <!-- hero section -->
+    <div id="hero"
+        class="flex flex-1 w-full flex-col items-center justify-center text-center px-4 py-20 bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800">
+        <a href=""
+            class="border border-white-700 dark:border-gray-300 rounded-lg py-2 px-4 text-white-400 dark:text-gray-300 text-sm mb-5 transition duration-300 ease-in-out hover:text-gray-500 dark:hover:text-gray-400">
+            Forget about spending hundreds $
+        </a>
+        <h1
+            class="mx-auto max-w-4xl font-display text-5xl font-bold tracking-normal text-white-300 dark:text-gray-300 sm:text-7xl">
+            Revolutionize Your Cooking
+            <span class="relative whitespace-nowrap text-white-600 dark:text-gray-300">Recipes</span>
+            <span class="relative whitespace-nowrap text-orange-500 dark:text-orange-300">
+                <svg aria-hidden="true" viewBox="0 0 418 42"
+                    class="absolute top-2/3 left-0 h-[0.58em] w-full fill-orange-500 dark:fill-orange-300/60"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.780 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.540-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.810 23.239-7.825 27.934-10.149 28.304-14.005 .417-4.348-3.529-6-16.878-7.066Z">
+                    </path>
+                </svg>
+                <span class="relative">with AI</span>
+            </span>
+        </h1>
+        <h2 class="mx-auto mt-12 max-w-xl text-lg sm:text-white-400 text-white-500 dark:text-gray-300 leading-7">
+            Experience the future of insurance with our cutting-edge AI tool. From underwriting to claims processing,
+            our
+            intelligent system streamlines and enhances every aspect of your Cooking operations.
+        </h2>
+        <a id="get"
+            class="bg-orange-600 dark:bg-orange-500 rounded-xl text-white dark:text-gray-300 font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-orange-500 dark:hover:bg-orange-700 transition"
+            onclick="openModal('modelConfirm')">Get started</a>
+    </div>
+
+    <!-- open modal section -->
+    <!-- <button class="bg-rose-500 text-white rounded-md px-4 py-2 hover:bg-rose-700 transition" onclick="openModal('modelConfirm')">
+    Click to Open modal
+ </button> -->
+
+    <div id="modelConfirm"
+        class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 ">
+        <div
+            class="relative top-40 mx-auto shadow-xl rounded-md dark:from-orange-800 dark:via-orange-700 dark:to-orange-800 dark:text-orange-500 max-w-md dark:bg-gray-900 bg-gray-50">
+
+            <div class="flex justify-end p-2">
+                <button onclick="closeModal('modelConfirm')" type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="p-6 pt-0 text-center">
+                <!-- <svg class="w-20 h-20 text-red-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg> -->
+                <div class="flex justify-center items-center"><img class="rounded-3xl" src="recipe.jpg" alt=""></div>
+                <h3 class="text-xl font-normal text-orange-800 dark:text-orange-300  mt-5 mb-6">Search Recipes in the
+                    Navbar Section !</h3>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- recipe container -->
+    <div id="recipe-container"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-10 mt-20 mb-10 mx-7 bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800">
+
+    </div>
+    <div id="recipe-details">
+        <button id="recipe-close-btn" type="button">
+            <i class="fas fa-times"></i>
+        </button>
+        <div id="recipe-details-content">
+        </div>
+    </div>
+    </div>
+
+
+    <div class="">
+        <div class="max-w-screen-xl py-10 px-4 sm:px-6 text-gray-800 sm:flex justify-between mx-auto">
+            <div class="p-5 sm:w-8/12">
+                <h3 class="font-bold text-3xl text-orange-600 mb-4">FoodieRecipe</h3>
+    
+                <div class="flex text-gray-500 uppercase text-sm">
+                    <a href="#" class="mr-2 text-orange-600">Home</a>
+                    <a href="#" class="mr-2 text-orange-600">About Us</a>
+                    <a href="#" class="mr-2 text-orange-600">Contact Us</a>
+                    <a href="#" class="mr-2 text-orange-600">Support Us</a>
+                </div>
+    
+            </div>
+            <div class="p-5 sm:w-4/12">
+                <h3 class="font-medium text-lg text-orange-600 mb-4">Subscribe to our Newsletter</h3>
+                <form class="mt-4">
+                    <input class="border border-gray-300 placeholder-current h-10 px-5 pr-16  rounded-lg text-sm focus:outline-none dark:bg-gray-500 dark:border-gray-50 dark:text-gray-200 " type="email" placeholder="username@email.com">
+                </form>
+            </div>
+        </div>
+        <div class="flex py-5 m-auto text-orange-800 text-sm flex-col items-center border-t max-w-screen-xl text-center">
+            <p>FoodieRecipe © Copyright 2020. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
